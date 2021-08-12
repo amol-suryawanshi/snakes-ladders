@@ -20,10 +20,15 @@ type Ladders struct {
 
 //Pawn of player
 type Pawn struct {
-	CurrentPos int8
+	CurrentPos int
 }
 
 //Snakes set of snakes
 type Snakes struct {
 	SnakesPos map[int]int
 }
+
+const (
+	NormalDice  int = 1
+	CrookedDice int = 2
+)
