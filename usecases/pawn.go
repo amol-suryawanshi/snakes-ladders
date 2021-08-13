@@ -2,11 +2,11 @@ package usecases
 
 import "snakes-ladders/entity"
 
-func SetPos(p entity.Pawn, pos int) {
+func SetPos(p *entity.Pawn, pos int) {
 	p.CurrentPos = pos
 }
 
-func GetPos(p entity.Pawn) int {
+func GetPos(p *entity.Pawn) int {
 	return p.CurrentPos
 }
 

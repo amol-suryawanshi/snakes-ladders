@@ -1,15 +1,12 @@
 package usecases
 
-//Ladders set of ladders in the game
-type Ladders struct {
-	LaddersPos map[int]int
+import "snakes-ladders/entity"
+
+func NewLadders(ladders map[int]int) entity.Ladders {
+	return entity.Ladders{LaddersPos: ladders}
 }
 
-func NewLadders(ladders map[int]int) Ladders {
-	return Ladders{LaddersPos: ladders}
-}
-
-func GetLaddersPos(l Ladders, startPos int) (int, bool) {
+func GetLaddersPos(l entity.Ladders, startPos int) (int, bool) {
 	v, ok := l.LaddersPos[startPos]
 	return v, ok
 }
