@@ -7,12 +7,15 @@ import (
 )
 
 func RollDice(dice entity.Dice) int {
-	rand.Seed(time.Now().UnixNano())
-	num := randomInt(1, 6)
-	if dice.Type == entity.CrookedDice {
-		return (num / 2) * 2
+	if dice.Type == entity.NormalDice || dice.Type == entity.CrookedDice {
+		rand.Seed(time.Now().UnixNano())
+		num := randomInt(1, 6)
+		if dice.Type == entity.CrookedDice {
+			return ((num + 1) / 2) * 2
+		}
+		return num
 	}
-	return num
+	return -1
 }
 
 func randomInt(min, max int) int {
@@ -20,5 +23,8 @@ func randomInt(min, max int) int {
 }
 
 func NewDice(dt int) entity.Dice {
-	return entity.Dice{Type: dt}
+	if dt == entity.NormalDice || dt == entity.CrookedDice {
+		return entity.Dice{Type: dt}
+	}
+	return entity.Dice{}
 }
