@@ -29,7 +29,6 @@ func main() {
 
 	fmt.Print("\n\tEnter Number of Snakes on board : ")
 	fmt.Scanln(&snakeCount)
-	fmt.Println("\n\tThe Snakes on the board : ", snakeCount)
 	snakes := make(map[int]int)
 	for i := 0; i < snakeCount; i++ {
 		var start, end int
@@ -45,7 +44,6 @@ func main() {
 
 	fmt.Printf("\n\tEnter Number of Ladders on board : ")
 	fmt.Scanln(&ladderCount)
-	// fmt.Println("The Ladders on the board : ", ladderCount)
 	ladders := make(map[int]int)
 	for i := 0; i < snakeCount; i++ {
 		var start, end int
@@ -61,9 +59,6 @@ func main() {
 
 	board := usecases.NewBoard(dice, usecases.NewPawn(), usecases.NewSnakes(snakes), usecases.NewLadders(ladders))
 
-	// fmt.Println(board.Pawn)
-	// fmt.Println(board.Snakes)
-	// fmt.Println(board.Ladders)
 	fmt.Println("Board is Ready to play\n\n\tLets start!!!")
 	for usecases.GetPos(&board.Pawn) >= 0 && usecases.GetPos(&board.Pawn) < 100 {
 		var cRollNum int
